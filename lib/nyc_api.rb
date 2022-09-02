@@ -12,7 +12,20 @@ class GetPrograms
     response.body
   end
 
+  def program_school
+    prorams = JSON.parse(self.get_programs)
+    prorams.each do |program|
+      puts program["agency"]
+    end
+  end
+
 end
 
-programs = GetPrograms.new.get_programs
-puts programs
+# programs = GetPrograms.new.get_programs
+# puts programs
+
+# programs = GetPrograms.new.program_school
+# puts programs
+
+programs = GetPrograms.new
+puts programs.program_school.uniq
